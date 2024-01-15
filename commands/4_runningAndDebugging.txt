@@ -1,1 +1,45 @@
-weqwe
+> npx playwright test
+> npx playwright test --ui
+mentioned
+> npx playwright test --headed
+(should have 4 browser, come out one by one...and then the html will come out at last)
+> npx playwright test --project webkit
+(should have no browser, it is not headed)
+> npx playwright test --project webkit --project firefox
+(if there are 4 test, than 8 should be passed)
+
+Run specific tests
+> npx playwright test 1_testIsolationExample.spec.ts
+> npx playwright test 1_testIsolationExample   
+(by file name)
+> npx playwright test tests/3_testFolder/
+> npx playwright test 3_testFolder
+(by directory)
+> npx playwright test -g "has title"  
+(by title of the test)
+
+To use extension on visual studio code:
+It is for embed playwright to an existing/new project, it could make an arrow icon next to the code lines.
+    Install playwright of vs code extension on visual studio code IDE.
+    Ctrl+Shift+P > Install Playwright > select something...
+    The result is a file, so a will not post it here.
+    It looks like a combine of ui version and the headless version. 
+
+Debugging tests
+> npx playwright test --ui
+(Do it on UI) Filter to select failed result, and open the steps it takes
+
+> npx playwright test --debug
+(It will open a lot of windows, each for one test and one type of browser.)
+I don't like it, although it have a one step by one step button...
+
+> npx playwright test 2_testHooksExample.spec.ts --debug
+(it makes a lot of sense to just open one file, but still you have 3 browsers.)
+(And also a thing call Nightly come out, and I don't know why it couldn't run.)
+
+> npx playwright test 2_testHooksExample.spec.ts:10 --debug
+(by line number, same as above, it just start at the line number you type)
+
+> npx playwright show-report
+(when the HTML show, click inside/ expand it to see what when wrong)
+
