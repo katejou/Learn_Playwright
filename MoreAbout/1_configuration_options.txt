@@ -1,4 +1,16 @@
 https://playwright.dev/docs/test-configuration
+explain : playwright.config.ts
 
+can set up test ignore
+https://playwright.dev/docs/test-configuration#filtering-tests
+
+can set up global value and output dir:
+https://playwright.dev/docs/test-configuration#advanced-configuration
+
+can set up more about assertion:
+https://playwright.dev/docs/test-configuration#expect-options
+
+
+Test use options: (even more additional settings could be add to playwright.config.ts)
 https://playwright.dev/docs/test-use-options
 
