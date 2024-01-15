@@ -1,0 +1,23 @@
+> npx playwright codegen URL
+function:
+    Recording a test
+    https://playwright.dev/docs/codegen
+
+    Generating locators
+    as well as emulate the geolocation, language or timezone. 
+    The test generator can also generate a test while preserving authenticated state
+
+Emulation:
+    https://playwright.dev/docs/codegen#emulation
+
+> npx playwright codegen --viewport-size=800,600 playwright.dev
+> npx playwright codegen --device="iPhone 13" playwright.dev
+> npx playwright codegen --color-scheme=dark playwright.dev
+> npx playwright codegen --timezone="Europe/Rome" --geolocation="41.890221,12.492348" --lang="it-IT" bing.com/maps
+> npx playwright codegen github.com/microsoft/playwright --save-storage=auth.json
+
+: with --save-storage 
+to save cookies and localStorage at the end of the session. 
+This is useful to separately record an authentication step and reuse it later when recording more tests.
+After performing authentication and closing the browser, (<-Do the login thing)
+auth.json will contain the storage state which you can then reuse in your tests.
