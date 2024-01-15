@@ -1,0 +1,8 @@
+> npx playwright test --trace on
+(if want to trace without ui mode, will show where it when wrong.)
+(if nothing is wrong nothing would be shown.)
+
+> npx playwright show-report
+> npx playwright test ui
+(they can both see the steps aka traces)
+
