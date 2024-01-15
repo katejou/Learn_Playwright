@@ -1,0 +1,32 @@
+> npm init playwright@latest
+generate: 
+    playwright.config.ts
+    package.json
+    package-lock.json
+    tests/
+        example.spec.ts
+    tests-examples/
+        demo-todo-app.spec.ts
+
+> npx playwright test
+result:
+    run headless mode on all 3 browsers, chromium, firefox and webkit using 3 workers.
+
+> npx playwright show-report
+result:
+    show index.html report in playwright-report folder on a browser.
+
+> npx playwright test --ui
+result:
+    run test in UI mode, that you can select which sub-task to run and see it play as a video.
+
+> npm install -D @playwright/test@latest
+function:
+    update
+
+> npx playwright --version
+function:
+    check version
+
+
+
