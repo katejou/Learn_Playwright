@@ -1,2 +1,12 @@
 https://playwright.dev/docs/auth
 
+add auth.setup.ts
+
+playwright.config.ts -> under projects 
+                                 { name: 'setup', testMatch: /.*\.setup\.ts/ },
+                                 under each browser : 
+                                        storageState and dependencies
+To try on it:
+//alter auth.setup.ts 
+//alter playwright.config.ts
+> npx playwright test 5_authenticationExample

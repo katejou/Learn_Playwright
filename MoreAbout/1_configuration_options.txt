@@ -16,5 +16,7 @@ https://playwright.dev/docs/test-use-options
 it could set : 
                 baseURL       ->  await page.goto('/')
                 storageState  ->  for auth https://playwright.dev/docs/auth (for detail, in 2_Authentication.txt)
+                
                 Emulation Options   ->  colorScheme, geolocation, locale(language), timezoneId, viewport(width and height of the window) ....
-                Network Options     ->  
+                Network Options     ->  acceptDownloads?, extraHTTPHeaders, *httpCredentials*, ignoreHTTPSErrors?, proxy ...
+                Recording Options   ->  screenshot: 'retain-on-failure' https://playwright.dev/docs/videos#record-video
