@@ -7,6 +7,5 @@ playwright.config.ts -> under projects
                                  under each browser : 
                                         storageState and dependencies
 To try on it:
-//alter auth.setup.ts 
-//alter playwright.config.ts
+//fill in your info in auth.setup.ts 
 > npx playwright test 5_authenticationExample
