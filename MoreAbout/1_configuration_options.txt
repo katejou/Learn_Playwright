@@ -13,4 +13,8 @@ https://playwright.dev/docs/test-configuration#expect-options
 
 Test use options: (even more additional settings could be add to playwright.config.ts)
 https://playwright.dev/docs/test-use-options
-
+it could set : 
+                baseURL       ->  await page.goto('/')
+                storageState  ->  for auth https://playwright.dev/docs/auth (for detail, in 2_Authentication.txt)
+                Emulation Options   ->  colorScheme, geolocation, locale(language), timezoneId, viewport(width and height of the window) ....
+                Network Options     ->  
