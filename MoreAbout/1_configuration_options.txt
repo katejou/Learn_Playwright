@@ -20,3 +20,9 @@ it could set :
                 Emulation Options   ->  colorScheme, geolocation, locale(language), timezoneId, viewport(width and height of the window) ....
                 Network Options     ->  acceptDownloads?, extraHTTPHeaders, *httpCredentials*, ignoreHTTPSErrors?, proxy ...
                 Recording Options   ->  screenshot: 'retain-on-failure' https://playwright.dev/docs/videos#record-video
+                
+                I will read the following in detail if need: 
+                Other Options, 
+                More browser and context options, 
+                Explicit Context Creation and Option Inheritance, 
+                Configuration Scopes
