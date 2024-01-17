@@ -1,0 +1,43 @@
+Fixtures = default words
+like: page, context, browser, browserName, request
+
+test('basic test', async ({ page }) => {         // this word inside the {} is fixtures
+  await page.goto('https://playwright.dev/');    // can be use inside
+  await expect(page).toHaveTitle(/Playwright/);
+});
+
+----------------------------------------------------
+without it, you have make one on you own:
+
+const { test } = require('@playwright/test');
+const { TodoPage } = require('./todo-page');
+
+test.describe('todo tests', () => {             // <- without fixtures in ()
+  let todoPage;                                 // <-like this
+
+  test.beforeEach(async ({ page }) => {
+    todoPage = new TodoPage(page);
+    await todoPage.goto();
+    await todoPage.addToDo('item1');
+    await todoPage.addToDo('item2');
+  });
+
+  test.afterEach(async () => {
+    await todoPage.removeAll();
+  });
+
+-----------------------------------------------
+to make one fixture on your own across files:
+
+see test/6_selfMakeFixture
+// https://playwright.dev/docs/test-fixtures#creating-a-fixture
+// https://playwright.dev/docs/test-fixtures#using-a-fixture
+
+------------------- I don't want to learn the following...don't think they are practical
+Overriding fixtures:
+https://playwright.dev/docs/test-fixtures#overriding-fixtures
+
+Worker-scoped fixtures
+Automatic fixtures
+.....
+

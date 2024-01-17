@@ -1,0 +1,20 @@
+------------ Dependencies ------------
+export default defineConfig({
+  testDir: './tests',
+  // ...
+  projects: [
+    {
+      name: 'setup',
+      testMatch: /global\.setup\.ts/,
+    },
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['setup'],
+    },
+  ]
+});
+-- I have done that at auth test
+
+
+For more, https://playwright.dev/docs/test-global-setup-teardown

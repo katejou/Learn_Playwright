@@ -1,0 +1,12 @@
+https://playwright.dev/docs/test-parallel
+about the workers
+Parallelize tests in a single file
+
+https://playwright.dev/docs/test-parameterize
+const people = ['Alice', 'Bob'];
+for (const name of people) {
+  test(`testing with ${name}`, async () => {
+    // ...
+  });
+  // You can also do it with test.describe() or with multiple tests as long the test name is unique.
+}

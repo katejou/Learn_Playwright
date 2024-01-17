@@ -1,0 +1,32 @@
+https://playwright.dev/docs/test-cli
+
+[more] commands than we already talked about.
+
+> npx playwright test --workers=1    
+Disable parallelization, (not running all kind of browsers all at once.) https://playwright.dev/docs/test-parallel
+
+> npx playwright test --reporter=dot
+Choose a reporter (dot / line / html / blob(zip file) / json / .... I don't want to know for more.)
+line = show sentence
+dot = if test pass show '.', if fail show a 'F'
+html = >  npx playwright show-report
+
+check playwright.config.ts > defineConfig > reporter 
+https://playwright.dev/docs/test-reporters
+// when I set up like this in config:
+ reporter: [
+    ['list', { printSteps: true }],
+    ['json', {  outputFile: 'test-results.json' }],
+    ['html', { open: 'always', outputFolder: 'my-report' }]
+  ],
+
+// and execute > npx playwright test   // without any specific reporter
+// 1. the cmd will list out sentences
+// 2. the html will open, and the file will save at /my-report
+// 3. test-results.json will be appears 
+
+> npx playwright test --reporter=blob
+a 'blob-report' file will appears with a zip inside.
+
+
+for more please visit :  https://playwright.dev/docs/test-cli

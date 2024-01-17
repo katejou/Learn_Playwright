@@ -1,0 +1,40 @@
+https://playwright.dev/docs/test-parameterize#passing-environment-variables
+
+
+1. in test
+
+test(`example test`, async ({ page }) => {
+  // ...
+  await page.getByLabel('User Name').fill(process.env.USERNAME);
+  await page.getByLabel('Password').fill(process.env.PASSWORD);
+});
+
+to running the above, in terminal:
+
+> $env:USERNAME=me
+> $env:PASSWORD=secret
+> npx playwright test
+
+
+2. playwright.config.ts
+
+in config file can also be like this:
+
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  use: {
+    baseURL: process.env.STAGING === '1' ? 'http://staging.example.test/' : 'http://example.test/',
+  }
+});
+
+> $env:STAGING=1
+> npx playwright test
+
+
+3.  .env files *******
+
+https://playwright.dev/docs/test-parameterize#env-files
+
+
+
