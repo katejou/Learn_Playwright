@@ -9,9 +9,6 @@ const yourGithubPassword = process.env.PASSWORD === undefined? '' : process.env.
 // when you want to start the auth, remember to delete '.skip' of the next line.
 setup('authenticate', async ({ page }) => {
 
-  console.log(yourGithubUserName);
-  console.log(yourGithubPassword);
-
   // Perform authentication steps. Replace these actions with your own.
   await page.goto('https://github.com/login');
   await page.getByLabel('Username or email address').fill(yourGithubUserName);
