@@ -4,7 +4,8 @@ const authFile = 'playwright/.auth/user.json';
 const yourGithubUserName = '<fill in yours>';
 const yourGithubPassword = '<fill in yours>';
 
-setup('authenticate', async ({ page }) => {
+// when you want to start the auth, delete '.skip' of the next line.
+setup.skip('authenticate', async ({ page }) => {
   // Perform authentication steps. Replace these actions with your own.
   await page.goto('https://github.com/login');
   await page.getByLabel('Username or email address').fill(yourGithubUserName);

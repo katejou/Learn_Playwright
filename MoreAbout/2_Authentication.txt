@@ -7,5 +7,7 @@ playwright.config.ts -> under projects
                                  under each browser : 
                                         storageState and dependencies
 To try on it:
-//fill in your info in auth.setup.ts 
+//fill in your info in auth.setup.ts, and remove the '.skip'
+//remove the '.skip' in auth.setup.ts and 5_authenticationExample.spec.ts
+// unlock settings in playwright.config.ts
 > npx playwright test 5_authenticationExample

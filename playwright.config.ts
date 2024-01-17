@@ -33,17 +33,18 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    // Setup project
-    { name: 'setup', testMatch: /.*\.setup\.ts/ },
+
+    // Setup project (execute before all test)
+    //{ name: 'setup', testMatch: /.*\.setup\.ts/ }, //<- release this when play auth 
 
     {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
         // Use prepared auth state.
-        storageState: 'playwright/.auth/user.json',
+        //storageState: 'playwright/.auth/user.json',  //<- release this when play auth
       },
-      dependencies: ['setup'],
+      //dependencies: ['setup'],  //<- release this when play auth
     },
 
     {
@@ -51,9 +52,9 @@ export default defineConfig({
       use: {
         ...devices['Desktop Firefox'],
         // Use prepared auth state.
-        storageState: 'playwright/.auth/user.json',
+        //storageState: 'playwright/.auth/user.json', //<- release this when play auth
       },
-      dependencies: ['setup'],
+      //dependencies: ['setup'],  //<- release this when play auth
 
     },
 
@@ -62,9 +63,9 @@ export default defineConfig({
       use: {
         ...devices['Desktop Safari'],
         // Use prepared auth state.
-        storageState: 'playwright/.auth/user.json',
+        //storageState: 'playwright/.auth/user.json',  //<- release this when play auth
       },
-      dependencies: ['setup'],
+      //dependencies: ['setup'],  //<- release this when play auth
     },
 
     /* Test against mobile viewports. */

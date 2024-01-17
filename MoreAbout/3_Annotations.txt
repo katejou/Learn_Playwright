@@ -1,0 +1,30 @@
+test.only(...)  <- only run this test when >  npx playwright test
+
+test.skip(...)  <- skip this test, 
+                <- add condition: https://playwright.dev/docs/test-annotations#conditionally-skip-a-group-of-tests
+
+test.fail()     <- this is 'inside and before' a group test, with its own Arguments to fill, unlike the uppers.
+                see tests/5_authenticationExample.spec.ts 
+                https://playwright.dev/docs/api/class-test#test-fail-1
+                it assert a test to fail.
+                test.fail(callback) <-- this is like activate in a condition like on specific browser.
+
+test.fixme()    <- similar to .skip, just showing the other word on the report.
+                It could also used like at 'inside and before' a group test. 
+                can also add conditions: https://playwright.dev/docs/api/class-test#test-fixme-3
+                can be use in before each to skip some condition: https://playwright.dev/docs/test-annotations#use-fixme-in-beforeeach-hook
+
+test.slow()     <- Slow test will be given triple the default timeout. 
+                cannot be used in a beforeAll or afterAll hook. Use test.setTimeout() instead.
+                like test.fail, it is used at 'inside and before' a group test.
+                see tests/5_authenticationExample.spec.ts 
+test.slow(condition) <- this is like activate in a condition like on specific browser.
+
+
+@ in description.   <- it is like #sth, then > npx playwright test --grep "@sth"   (""is depend on OS system, may not need to have) 
+                    <- can filter out the tests from others, like .only.
+                    <- revert filter > npx playwright test --grep-invert "@sth"
+                    <- two tag together, using OR > npx playwright test --grep --% "@sth^|@sthElse"
+                    <- two tag together, using AND > npx playwright test --grep "(?=.*@sth)(?=.*@sthElse)"
+
+Custom annotations <- I skipped this part: https://playwright.dev/docs/test-annotations#custom-annotations
