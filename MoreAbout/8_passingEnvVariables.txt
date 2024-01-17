@@ -36,5 +36,18 @@ export default defineConfig({
 
 https://playwright.dev/docs/test-parameterize#env-files
 
+remember to 
+> npm install dotenv
+
+In playwright.config.ts
+
+// Read from default ".env" file.
+dotenv.config();
+
+I have try it on auth.setup.ts 
+(Remember to let every setting of auth test out!)
+try on it by > npx playwright test 5_AuthenticationExample 
+
+and please look at .env that I made up.
 
 

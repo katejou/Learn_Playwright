@@ -4,7 +4,9 @@ import { defineConfig, devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
+import dotenv from 'dotenv';
+// Read from default ".env" file.
+dotenv.config();
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -41,7 +43,7 @@ export default defineConfig({
   projects: [
 
     // Setup project (execute before all test)
-    //{ name: 'setup', testMatch: /.*\.setup\.ts/ }, //<- release this when play auth 
+    { name: 'setup', testMatch: /.*\.setup\.ts/ }, //<- release this when play auth 
 
     {
       name: 'chromium',

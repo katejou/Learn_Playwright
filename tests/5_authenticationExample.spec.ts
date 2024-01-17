@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 // remove .skip when play auth
+// remove .fail when play auth
 test('authentication', async ({ page }) => {
   test.slow();
   test.fail(true,'this test is failing because I did not open the auth settings.');

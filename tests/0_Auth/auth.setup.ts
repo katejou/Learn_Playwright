@@ -1,11 +1,17 @@
 import { test as setup, expect } from '@playwright/test';
 
 const authFile = 'playwright/.auth/user.json';
-const yourGithubUserName = '<fill in yours>';
-const yourGithubPassword = '<fill in yours>';
+ //const yourGithubUserName = '<fill in yours>';
+ //const yourGithubPassword = '<fill in yours>';
+const yourGithubUserName = process.env.NAME === undefined? '' : process.env.NAME
+const yourGithubPassword = process.env.PASSWORD === undefined? '' : process.env.PASSWORD
 
-// when you want to start the auth, delete '.skip' of the next line.
-setup.skip('authenticate', async ({ page }) => {
+// when you want to start the auth, remember to delete '.skip' of the next line.
+setup('authenticate', async ({ page }) => {
+
+  console.log(yourGithubUserName);
+  console.log(yourGithubPassword);
+
   // Perform authentication steps. Replace these actions with your own.
   await page.goto('https://github.com/login');
   await page.getByLabel('Username or email address').fill(yourGithubUserName);
