@@ -1,0 +1,47 @@
+I skipped 'Sharding'.
+
+https://playwright.dev/docs/test-timeouts
+
+---- Set in config:
+
+export default defineConfig({
+  timeout: 5 * 60 * 1000,
+});
+
+---- Set timeout for a single test:
+
+test('slow test', async ({ page }) => {
+  test.slow(); // Easy way to triple the default timeout
+  // ...
+});
+
+test('very slow test', async ({ page }) => {
+  test.setTimeout(120000);
+  // ...
+});
+
+----- mix of two 
+
+test.beforeEach(async ({ page }, testInfo) => {
+  // Extend timeout for all tests running this hook by 30 seconds.
+  testInfo.setTimeout(testInfo.timeout + 30000);
+});
+
+---- or change default from config
+
+test.beforeAll(async () => {
+  // Set timeout for this hook.
+  test.setTimeout(60000);
+});
+
+----- 'expect timeout' is different from time out
+https://playwright.dev/docs/test-timeouts#expect-timeout
+
+----- Global timeout is setting timeout for the whole test run
+
+export default defineConfig({
+  globalTimeout: 60 * 60 * 1000,
+});
+
+----- all kind of timeout
+https://playwright.dev/docs/test-timeouts#advanced-low-level-timeouts

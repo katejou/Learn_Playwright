@@ -54,19 +54,20 @@ afterAll hook runs
 
 
 ------------------------------------------------------
- if (testInfo.retry)
+ if (testInfo.retry)  <--- 
 
-test('my test', async ({ page }, testInfo) => {
+test('my test', async ({ page }, testInfo) => { //<-- also notice the 'testInfo' here.
   if (testInfo.retry)
-    await cleanSomeCachesOnTheServer(); //<--- this could be another things
+    await cleanSomeCachesOnTheServer(); //<--- this could be sth else
 });
 
--------------------------------
+-----------------------------see practice in 2_testHooksExample.spec.ts
  set retry on .spec file:
 
  test.describe(() => {
   
   test.describe.configure({ retries: 2 }); //<- All tests in this describe group will get 2 retry attempts.
+ 
   test('test 1', async ({ page }) => {
     // ...
   });
