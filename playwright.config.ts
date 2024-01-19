@@ -12,13 +12,16 @@ dotenv.config();
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  //retries: process.env.CI ? 2 : 0,
+  // Give failing tests 3 retry attempts
+  retries: 3,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -43,7 +46,7 @@ export default defineConfig({
   projects: [
 
     // Setup project (execute before all test)
-    { name: 'setup', testMatch: /.*\.setup\.ts/ }, //<- release this when play auth 
+    //{ name: 'setup', testMatch: /.*\.setup\.ts/ }, //<- release this when play auth 
 
     {
       name: 'chromium',

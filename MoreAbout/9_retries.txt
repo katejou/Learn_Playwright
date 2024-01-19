@@ -1,0 +1,58 @@
+https://playwright.dev/docs/test-retries
+
+TO SET:
+
+> npx playwright test --retries=3
+
+or
+playwright.config.ts
+
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  // Give failing tests 3 retry attempts
+  retries: 3,
+});
+
+---------------
+CASE:
+
+test.describe('suite', () => {
+  test.beforeAll(async () => { /* ... */ });
+  test('first good', async ({ page }) => { /* ... */ });
+  test('second flaky', async ({ page }) => { /* ... */ });
+  test('third good', async ({ page }) => { /* ... */ });
+  test.afterAll(async () => { /* ... */ });
+});
+
+IF NOT SET:  *Worker process close when fail.
+
+Worker process #1 starts
+beforeAll hook runs
+first good passes
+second flaky fails
+afterAll hook runs
+
+Worker process #2 starts
+beforeAll hook runs again
+third good passes
+afterAll hook runs
+
+IF SET:
+
+Worker process #1 starts
+beforeAll hook runs
+first good passes
+second flaky fails
+afterAll hook runs
+
+Worker process #2 starts
+beforeAll hook runs again
+second flaky is retried and passes   <----- **** another chance
+third good passes
+afterAll hook runs
+
+
+------------------------------------------------------
+clears some server-side state before a retry
+

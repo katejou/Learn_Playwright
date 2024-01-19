@@ -1,5 +1,5 @@
 https://playwright.dev/docs/test-parameterize#passing-environment-variables
-
+https://playwright.dev/docs/test-global-setup-teardown
 
 1. in test
 
@@ -51,3 +51,5 @@ try on it by > npx playwright test 5_AuthenticationExample
 and please look at .env that I made up.
 
 
+You can also set env variables by : 
+https://playwright.dev/docs/test-global-setup-teardown
